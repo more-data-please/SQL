@@ -1,0 +1,41 @@
+#First, I created a store database. Then, displayed the order by price and displayed the maximum quantity for an item in the store database.
+
+
+
+CREATE TABLE makeup (id INTEGER PRIMARY KEY, name TEXT, category TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO makeup VALUES (1, "primer", "face", 14, 1750);
+
+INSERT INTO makeup VALUES (2, "foundation", "face", 22, 2500);
+
+INSERT INTO makeup VALUES (3, "concealer", "face", 18, 2500);
+
+INSERT INTO makeup VALUES (4, "powder", "face", 20, 2000);
+
+INSERT INTO makeup VALUES (5, "eyelashes", "eyes", 7, 1000);
+
+INSERT INTO makeup VALUES (6, "lipstick", "lips", 15, 750);
+
+INSERT INTO makeup VALUES (7, "makeup_brushes", "misc", 10.00, 1000);
+
+INSERT INTO makeup VALUES (8, "lip_gloss", "lips", 10.00, 750);
+
+INSERT INTO makeup VALUES (9, "highlighter", "misc", 14.00, 1500);
+
+INSERT INTO makeup VALUES (10, "blush", "face", 12.00, 1500);
+
+INSERT INTO makeup VALUES (11, "makeup_remover", "misc", 6.00, 1000);
+
+INSERT INTO makeup VALUES (12, "bronzer", "face", 16.00, 1500);
+
+INSERT INTO makeup VALUES (13, "eyeshadow", "eyes", 18.00, 1000);
+
+INSERT INTO makeup VALUES (14, "mascara", "eyes", 9.00, 500);
+
+INSERT INTO makeup VALUES (15, "setting_spray", "misc", 10.00, 800);
+
+
+SELECT * FROM makeup ORDER BY price;
+
+SELECT MAX(quantity) FROM makeup;
+
