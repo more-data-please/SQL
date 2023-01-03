@@ -29,21 +29,25 @@ time_signature integer NOT NULL );
 
 
 /* This query was used to determine the top 10 artists based on popularity*/
-SELECT artist_name, popularity
+SELECT artist_name, 
+popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity DESC LIMIT 10;
 
 
 
 /* This query was used to determine which artist released the longest song*/
-SELECT artist_name, MAX(duration_ms)
+SELECT artist_name, 
+MAX(duration_ms)
 FROM BIT_DB.Spotifydata
 LIMIT 1;
 
 
 
 /* This query was used to determine the average danceability for the 10 most popular songs*/
-SELECT track_name, AVG(danceability), popularity
+SELECT track_name, 
+AVG(danceability), 
+popularity
 FROM BIT_DB.Spotifydata
 GROUP BY track_name
 ORDER BY popularity DESC LIMIT 10;
@@ -51,7 +55,10 @@ ORDER BY popularity DESC LIMIT 10;
 
 
 /* This query was used to display songs with the highest tempo and to compare their tempo to its danceability and popularity*/
-SELECT track_name, MAX(tempo) AS tempo, danceability, popularity
+SELECT track_name, 
+MAX(tempo) AS tempo, 
+danceability, 
+popularity
 FROM BIT_DB.Spotifydata 
 GROUP BY track_name
 ORDER BY tempo DESC LIMIT 5;
