@@ -1,5 +1,8 @@
 --This query was used to join two tables containing data about Netflix films, which helped me answer a set of questions about the data.
-SELECT people.show_id, people.director, titles.title, titles.type
+SELECT people.show_id, 
+people.director, 
+titles.title, 
+titles.type
 FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
 LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
 ON people.show_id=titles.show_id;
@@ -36,7 +39,8 @@ WHERE titles.title= 'Bright Star';
 
 
 --What is the oldest movie in the database and what year was it made?
-SELECT title, release_year
+SELECT title, 
+release_year
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
 WHERE type= 'Movie'
 ORDER BY release_year ASC
