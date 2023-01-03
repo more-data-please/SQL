@@ -22,8 +22,12 @@ INSERT INTO makeup VALUES (15, "setting_spray", "misc", 10.00, 800);
 
 
 
-SELECT * FROM makeup ORDER BY price;
+SELECT * 
+FROM makeup 
+ORDER BY price;
 
 
-SELECT MAX(quantity) FROM makeup;
+
+SELECT MAX(quantity) 
+FROM makeup;
 
