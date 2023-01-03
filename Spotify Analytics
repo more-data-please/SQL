@@ -1,4 +1,5 @@
 /* In this project, I imported a Spotify dataset from Kaggle. Next, I created a table to put the Spotify data into. Then, I performed analytics on the dataset using the SQL queries below.*/
+/*Data Source: https://www.kaggle.com/equinxx/spotify-top-50-songs-in-2021?select=spotify_top50_2021.csv*/
 
 
 /*Created table using the following SQL code*/
@@ -80,3 +81,5 @@ SELECT  artist_name,
         'Top Star' AS tag
 FROM popularity_average_CTE
 WHERE average_popularity>=90;
+
+
