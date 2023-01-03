@@ -48,12 +48,18 @@ INSERT INTO mvp_award VALUES (6, " ");
 
 /* This query was used to display the team that each athlete played for */
 
-SELECT id, player, team FROM sports;
+SELECT id, 
+player, 
+team 
+FROM sports;
 
 
 /* This query was used to join and display data about each athlete and the year each player won an MVP award since their draft year */
 
-SELECT athletes.id, athletes.player, athletes.draft_year, mvp_award.year_won AS mvp_year_won
+SELECT athletes.id, 
+athletes.player, 
+athletes.draft_year, 
+mvp_award.year_won AS mvp_year_won
 FROM athletes
 JOIN mvp_award
-ON athletes.id=mvp_award.id
+ON athletes.id=mvp_award.id;
