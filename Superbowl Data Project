@@ -71,15 +71,21 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 
 
 /* This query was used to find the team that won the most Superbowl games*/
-SELECT MAX(winner) FROM superbowls;
+SELECT MAX(winner) 
+FROM superbowls;
 
 
 
 /* This query was used to find the football team that won the Superbowl by 20 points and held their opponent to just a field goal */
-SELECT winner FROM superbowls
+SELECT winner 
+FROM superbowls
 WHERE winner_pts > 20 AND loser_pts = 3;
 
 
 
 /*This query was used to find the top teams with more than 100 total points scored in Superbowl games played */
-SELECT winner, SUM(winner_pts) AS "total_pts" FROM superbowls GROUP BY winner HAVING SUM(winner_pts) >100 ORDER BY SUM(winner_pts) DESC
+SELECT winner, SUM(winner_pts) AS "total_pts" 
+FROM superbowls 
+GROUP BY winner 
+HAVING SUM(winner_pts) >100 
+ORDER BY SUM(winner_pts) DESC
