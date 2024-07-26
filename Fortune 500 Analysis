@@ -1,4 +1,4 @@
-/* This database is a list of the Fortune 500 companies with the most revenue and that are typically regarded as some of the best places to work. */
+/* This database is a sample list of some of the Fortune 500 companies with the most revenue and that are typically rewarded as some of the best places to work. */
 
 CREATE TABLE fortune_companies (
     company_id INTEGER PRIMARY KEY,
@@ -91,7 +91,7 @@ GROUP BY industry
 HAVING average_billions_revenue >=200;
 
 
-/* Which company in the Retail industry has the least revenue, and what's their revenue? */
+/* This query was used ti show which company in the Retail industry has the least revenue. */
 
 SELECT company_name, MIN(revenue) AS least_revenue
 FROM fortune_companies
