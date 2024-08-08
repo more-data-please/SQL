@@ -52,7 +52,7 @@ WHERE location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY Product;
 
 
-/* How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers. */
+/* This query was used to show how many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers. */
 
 SELECT DISTINCT COUNT(cust.acctnum) AS total_orders, AVG(quantity*price) AS avg_price
 FROM BIT_DB.FebSales AS Feb
