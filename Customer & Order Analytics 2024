@@ -71,3 +71,59 @@ FROM BIT_DB.FebSales
 WHERE location LIKE '%Los Angeles%'
 GROUP BY Product
 ORDER BY total_sold DESC;
+
+
+/* This query was used to determine which locations in New York received at least 3 orders in January, and how many orders did they each receive? */
+
+SELECT DISTINCT location, COUNT(orderID) AS total_orders
+FROM BIT_DB.JanSales
+WHERE location LIKE '%NY%'
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY location
+HAVING count(orderID)>2
+;
+
+
+/* This query was used to determine how many of each type of headphone were sold in February */
+
+SELECT SUM(Quantity) AS Quantity, Product
+FROM BIT_DB.FebSales
+WHERE Product LIKE '%Headphones'
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY Product
+;
+
+
+/* This query was used to determine the average amount spent per account in February */
+
+SELECT AVG(quantity*price) AS avg_spent
+FROM BIT_DB.FebSales Feb
+
+LEFT JOIN BIT_DB.customers cust
+ON FEB.orderid=cust.order_id
+
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';
+
+
+/* This query was used to find the average quantity of products purchased per account in February */
+
+SELECT SUM(Quantity)/COUNT(cust.acctnum) AS avg_quantity
+FROM BIT_DB.FebSales Feb
+
+LEFT JOIN BIT_DB.customers cust
+ON FEB.orderid=cust.order_id
+
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';
+
+
+/* This query was used to determine which product brought in the most revenue in January and how much revenue it brought in total */
+
+SELECT SUM(Quantity*price) AS total_revenue, Product
+FROM BIT_DB.JanSales
+GROUP BY Product
+ORDER BY SUM(Quantity*price) DESC
+LIMIT 1;
