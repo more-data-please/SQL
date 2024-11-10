@@ -1,4 +1,3 @@
-/* This query was used to determine which bank product is the best option for a specific customer. */
 
 CREATE TABLE bank_products (
     product_id INTEGER PRIMARY KEY,
