@@ -1,8 +1,10 @@
-/* In this project, I imported a Spotify dataset from Kaggle. Next, I created a table to put the Spotify data into. Then, I performed analytics on the dataset using the SQL queries below.*/
+/* In this analysis, I imported a Spotify dataset from Kaggle. Next, I created a table to put the Spotify data into. 
+Then, I performed analytics on the dataset using the SQL queries below. */
+
 /*Data Source: https://www.kaggle.com/equinxx/spotify-top-50-songs-in-2021?select=spotify_top50_2021.csv*/
 
 
-/*Created table using the following SQL code*/
+/* The following query was used to create table for the Spotify data that will be used to perform the analysis. */
 
 CREATE TABLE BIT_DB.Spotifydata (
 id integer PRIMARY KEY,
@@ -25,16 +27,11 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL );
 
 
-/* Next, I inserted the Spotify Data .csv into the table and used the following queries for my analytics.*/
-
-
-
-/* This query was used to determine the top 10 artists based on popularity*/
+/* This query was used to determine the top 10 artists based on popularity. */
 SELECT artist_name, 
 popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity DESC LIMIT 10;
-
 
 
 /* This query was used to determine which artist released the longest song*/
@@ -44,8 +41,7 @@ FROM BIT_DB.Spotifydata
 LIMIT 1;
 
 
-
-/* This query was used to determine the average danceability for the 10 most popular songs*/
+/* This query was used to determine the average danceability for the 10 most popular songs. */
 SELECT track_name, 
 AVG(danceability), 
 popularity
@@ -54,8 +50,7 @@ GROUP BY track_name
 ORDER BY popularity DESC LIMIT 10;
 
 
-
-/* This query was used to display songs with the highest tempo and to compare their tempo to its danceability and popularity*/
+/* This query was used to display songs with the highest tempo and to compare their tempo to its danceability and popularity. */
 SELECT track_name, 
 MAX(tempo) AS tempo, 
 danceability, 
@@ -65,21 +60,8 @@ GROUP BY track_name
 ORDER BY tempo DESC LIMIT 5;
 
 
-
-/*Calculate the average popularity for the artists in the Spotify data table.
-Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star*/
-
-WITH popularity_average_CTE AS (
-SELECT s.artist_name,
-AVG(s.popularity) AS average_popularity
-FROM SpotifyData s 
-GROUP BY s.artist_name
-)
- 
-SELECT  artist_name,
-        average_popularity,
-        'Top Star' AS tag
-FROM popularity_average_CTE
-WHERE average_popularity>=90;
-
+/* This query was used to discover how the danceability of a track affects the popularity of the track. */
+SELECT track_name, popularity, danceability
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC;
 
