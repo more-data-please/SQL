@@ -52,44 +52,52 @@ VALUES
     (10, 3, 'Food & Beverages', 7.2, 'Standard', '2023-10-03', '2023-10-08', 'Delivered');
 
 
-/* This query was used to show customers that have never used Express shipments before so that they may be sent information about our new discount code they can use when they select Express shipments. */
 
-SELECT DISTINCT customers.customer_id,
-customers.customer_name,
-customers.contact_email,
-shipments.shipping_method
-FROM customers
-LEFT JOIN shipments
-ON customers.customer_id=shipments.sender_id
-ORDER BY customers.customer_id
+------------------------------------------------------------------------------------
+/* This query was used to show customers that have never used Express shipments before 
+so that they may be sent information about our new discount code they can use when they 
+select Express shipments.
+------------------------------------------------------------------------------------
+
+select distinct customers.customer_id
+               ,customers.customer_name
+               ,customers.contact_email
+               ,shipments.shipping_method
+from customers
+left join shipments
+   on customers.customer_id=shipments.sender_id
+order by customers.customer_id
 ;
 
 
-/* This query was used to show customer and shipping information but only for the customers we have detailed shipping history for. */
+------------------------------------------------------------------------------------
+This query was used to show customer and shipping information but only for the customers
+we have detailed shipping history for.
+------------------------------------------------------------------------------------
 
-SELECT DISTINCT customers.customer_id,
-customers.customer_name,
-customers.contact_email,
-shipments.shipping_method
-FROM customers
-INNER JOIN shipments
-ON customers.customer_id=shipments.sender_id
-ORDER BY customers.customer_id
+select distinct customers.customer_id
+               ,customers.customer_name
+               ,customers.contact_email
+               ,shipments.shipping_method
+from customers
+inner joib shipments
+   on customers.customer_id=shipments.sender_id
+order by customers.customer_id
 ;
 
 
-/* This query was used to show but only for the customers we have detailed shipping history for and who have only used the 'Standard' shipping method before.*/ 
+------------------------------------------------------------------------------------
+This query was used to show but only for the customers we have detailed shipping 
+history for and who have only used the 'Standard' shipping method before.
+-------------------------------------------------------------------------------------
 
-
-SELECT DISTINCT customers.customer_id,
-customers.customer_name,
-customers.contact_email,
-shipments.shipping_method
-FROM customers
-INNER JOIN shipments
-ON customers.customer_id=shipments.sender_id
-WHERE shipments.shipping_method = 'Standard'
-ORDER BY customers.customer_id
+select distinct customers.customer_id
+               ,customers.customer_name
+               ,customers.contact_email
+               ,shipments.shipping_method
+from customers
+inner join shipments
+   on customers.customer_id=shipments.sender_id
+where shipments.shipping_method = 'Standard'
+order by customers.customer_id
 ;
-
-
