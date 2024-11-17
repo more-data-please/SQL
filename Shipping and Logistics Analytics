@@ -54,7 +54,7 @@ VALUES
 
 
 ------------------------------------------------------------------------------------
-/* This query was used to show customers that have never used Express shipments before 
+This query was used to show customers that have never used Express shipments before 
 so that they may be sent information about our new discount code they can use when they 
 select Express shipments.
 ------------------------------------------------------------------------------------
