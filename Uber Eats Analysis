@@ -202,7 +202,8 @@ VALUES
 (180, 'ChickFilA', 'American', 11.65, 3.00, 1.58, 3.99, 5.00, 25.22, 'No', 'No', NULL, '4/1/25', '2:42 PM');
 
 
-------- This query was used to calculate the overall amount spent on Uber Eats -------
+
+---- This query was used to calculate the overall amount spent on Uber Eats ----
 SELECT
 SUM(total) AS total_spent
 
@@ -210,7 +211,7 @@ FROM
 orders;
 
 
-------- This query was used to calculate how much was spent in 2023 -------
+---- This query was used to calculate how much was spent in 2023 ----
 SELECT
 SUM(total)
 
@@ -222,7 +223,7 @@ order_date
 BETWEEN '2023-01-01' AND '2023-12-31';
 
 
-------- This query was used to calculate how much was spent in 2024 -------
+---- This query was used to calculate how much was spent in 2024 ----
 SELECT 
 SUM(total)
 
@@ -234,7 +235,7 @@ order_date
 BETWEEN '2024-01-01' AND '2024-12-31';
 
 
-------- This query was used to calculate how much was spent in 2025 so far -------
+---- This query was used to calculate how much was spent in 2025 so far ----
 SELECT 
 SUM(total)
 
@@ -246,15 +247,14 @@ order_date
 BETWEEN '2025-01-01' AND '2025-12-31';
 
 
-------- This query was used to calculate the maximum amount spent on a tip an order -------
+---- This query was used to calculate the maximum amount spent on a tip an order ----
 SELECT 
 MAX(tip) AS max_tip
 
 FROM
 orders;
 
-
-------- This query was used to calculate how much was spent at each restaurant -------
+---- This query was used to calculate how much was spent at each restaurant ----
 SELECT 
 name,
 SUM(total) AS total
@@ -268,3 +268,17 @@ name
 ORDER BY
 total DESC;
 
+
+---- This query was used to calculate the amount of orders at each restaurant ----
+SELECT 
+name,
+COUNT(order_id) AS total_orders
+
+FROM
+orders
+
+GROUP BY
+name
+
+ORDER BY
+total_orders;
